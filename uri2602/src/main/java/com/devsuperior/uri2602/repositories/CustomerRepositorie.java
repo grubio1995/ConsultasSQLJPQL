@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import com.devsuperior.uri2602.dto.CustomerMinDTO;
 import com.devsuperior.uri2602.entities.Customer;
 import com.devsuperior.uri2602.projections.CustomerMinProjection;
 
@@ -14,5 +15,10 @@ public interface CustomerRepositorie extends JpaRepository<Customer,Long>{
 			+ "FROM customers " 
 			+ "WHERE state = UPPER(:state)")
 	List<CustomerMinProjection> search1(String state);
+	
+	@Query("SELECT new com.devsuperior.uri2602.dto.CustomerMinDTO(obj.name)" 
+			+ "FROM Customer obj " 
+			+ "WHERE obj.state = UPPER(:state)")
+	List<CustomerMinDTO> search2(String state);
 }
  
