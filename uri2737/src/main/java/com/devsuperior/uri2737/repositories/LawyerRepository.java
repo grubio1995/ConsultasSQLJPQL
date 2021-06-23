@@ -10,7 +10,7 @@ import com.devsuperior.uri2737.projections.LawyerMinProjection;
 
 public interface LawyerRepository extends JpaRepository<Lawyer, Long> {
 
-	@Query(nativeQuery = true, value = "(SELECT name, customers_number "
+	@Query(nativeQuery = true, value = "(SELECT name, customers_number AS customersNumber "
 			+ "FROM lawyers "
 			+ "WHERE customers_number = ( "
 			+ "	SELECT MAX(customers_number) "
