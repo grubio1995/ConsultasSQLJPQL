@@ -11,8 +11,8 @@ import com.devsuperior.uri2990.projections.EmpregadoDeptProjection;
 
 public interface EmpregadoRepository extends JpaRepository<Empregado, Long> {
 	
-	@Query(nativeQuery = true, value ="select empregados.cpf,empregados.enome, departamentos.dnome "
-			+ "from empregados "
+	@Query(nativeQuery = true, value ="SELECT empregados.cpf,empregados.enome, departamentos.dnome "
+			+ "FROM empregados "
 			+ "INNER JOIN departamentos ON empregados.dnumero = departamentos.dnumero "
 			+ "WHERE empregados.cpf NOT IN( "
 			+ "	SELECT empregados.cpf "

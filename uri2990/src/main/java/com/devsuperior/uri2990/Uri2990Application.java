@@ -28,7 +28,7 @@ public class Uri2990Application implements CommandLineRunner {
 		List<EmpregadoDeptProjection> list = repository.search1();
 		List<EmpregadoDeptDTO> result1 = list.stream().map(x -> new EmpregadoDeptDTO(x)).collect(Collectors.toList());
 
-		System.out.println("\n*** RESULTADO SQL RAIZ:");
+		System.out.println("\n*** RESULTADO SQL RAIZ NOT IN:");
 		for (EmpregadoDeptDTO obj : result1) {
 			System.out.println(obj);
 		}
